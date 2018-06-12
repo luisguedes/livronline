@@ -1,0 +1,265 @@
+﻿* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #edf1f5
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    background: #FFF;
+    box-shadow: 4px 0 8px rgba(47, 50, 62, 0.1)
+}
+
+.sidebar > ul {
+    padding: 0px;
+    list-style: none;
+}
+
+.sidebar > ul > li > a {
+    color: #54667a;
+    border-left: 3px solid #fff;
+    text-decoration: none;
+    display: block;
+    padding: 20px 35px;
+}
+
+.sidebar > ul > li > a > i {
+    width: 30px;
+}
+
+.sidebar > ul > li.active > a {
+    border-left: 3px solid #41b3f9;
+    font-weight: 700;
+}
+
+.sidebar > ul > li:hover > a {
+    background: rgba(47, 50, 62, 0.1);
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 300px;
+    width: calc(100% - 300px);
+    overflow-y: scroll;
+}
+
+.content > header {
+    background: #2f323e;
+    height: 60px;
+    position: fixed;
+    z-index: 5;
+    width: calc(100% - 300px);
+}
+
+.content > section {
+    margin: 60px 0 0;
+    padding: 20px;
+}
+
+.content > section > .card {
+    padding: 20px 30px;
+    background: #FFF;
+    box-shadow: 0 0 5px rgba(47, 50, 62, 0.1);
+    margin-bottom: 20px;
+}
+
+.content > section > .card > h2 {
+    color: #2f323e;
+    margin: 0px 0px 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(47, 50, 62, 0.1);
+}
+
+.content > section > .card .custom-table {
+    width: 100%;
+    border-width: 0px;
+}
+
+.content > section > .card .custom-table > thead {
+    text-align: left;
+    color: #666;
+    font-weight: 500;
+}
+
+.content > section > .card .custom-table > thead th {
+    padding: 20px 0;
+}
+
+.content > section > .card .custom-table tr {
+    border: white;
+    border-bottom: 1px solid rgba(47, 50, 62, 0.1);
+}
+
+.content > section > .card .custom-table > tbody {
+    color: #797979;
+    font-weight: 300;
+}
+
+.content > section > .card .custom-table > tbody {
+    color: #797979;
+    font-weight: 300;
+}
+
+.content > section > .card .custom-table > tbody tr td, thead tr th {
+    padding: 10px 5px;
+    border-bottom: 1px solid rgba(47,50,62, 0.1)
+}
+
+.content > section > .card .custom-table > tbody tr:hover {
+    background: rgba(47, 50, 62, 0.05);
+    cursor: pointer;
+}
+
+
+.content header .right {
+    float: right;
+    margin-right: 20px;
+}
+
+.content header .right ul {
+    padding: 0px;
+    margin: 12px 0;
+    list-style: none;
+}
+
+.content header .right ul:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+.content header .right ul li {
+    float: left;
+}
+
+.content header .right ul a {
+    position: relative;
+    display: block;
+    margin-left: 10px;
+    line-height: 35px;
+    width: 35px;
+    text-align: center;
+    border: 1px solid #FFF;
+    border-radius: 50%;
+    color: #FFF
+}
+
+.content header .right ul a:after {
+    content: "+";
+    color: #2b324f;
+    background: #FFF;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    font-weight: 700;
+    right: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.content header .right ul a:hover:after {
+    opacity: 1
+}
+
+.input {
+    margin: 20px 0;
+    position: relative;
+}
+
+.input, .input > * {
+    width: 100%;
+}
+
+.input label {
+    position: absolute;
+    color: rgba(47, 50, 62, 0.3);
+    font-weight: 300;
+    top: 0px;
+    left: 0px;
+    transition: 0.3s;
+}
+
+.input input {
+    padding: 5px 2px;
+    border: none;
+    border-bottom: 1px solid #797979;
+    transition: 0.3s;
+    margin-bottom: 10px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.input input:focus {
+    outline: 0;
+    border-bottom: 1px solid #41b3f9;
+    transition: 0.3s;
+}
+
+.input input:focus + label, .input input:not(:placeholder-shown) + label {
+    font-size: 12px;
+    top: -12px;
+    color: #41b3f9;
+    transition: 0.3s;
+}
+
+.input input:not(:placeholder-shown) + label {
+    color: #797979;
+}
+
+.input.disabled {
+    opacity: 0.65
+}
+
+.input.disabled:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    cursor: no-drop;
+}
+
+.button {
+    border: 0px;
+    background: #2f323e;
+    padding: 5px 25px;
+    color: #fff;
+}
+
+.button.red {
+    background: #9e1b1b 
+}
+
+.action-button {
+    border: 0;
+    background: transparent;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+.action-button {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.action-button.delete-button {
+    color: #9e1b1b
+}
+
+.action-button.edit-button {
+    color: #44900b
+}
