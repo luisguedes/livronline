@@ -20,7 +20,7 @@ namespace Models {
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@tipo", tipo);
 
-            return cmd;
+            return base.SaveCommand(cmd);
         }
 
         public void setTipo()

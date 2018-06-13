@@ -40,6 +40,8 @@ public partial class Editar : Page
                 Qtd.Text = d.Rows[0].Field<int>(2).ToString();
                 Titulo.Text = d.Rows[0].Field<String>(3);
                 Autor.Text = d.Rows[0].Field<String>(4);
+                Valor.Text = d.Rows[0].Field<Decimal>(5).ToString();
+
                 this.todasCategorias = this.todasCategorias.Except(this.categoriasDoLivro).ToList();
             }
         }
@@ -55,6 +57,7 @@ public partial class Editar : Page
         l.qtde = Convert.ToInt64(Qtd.Text);
         l.editoraCnpj = Convert.ToInt64(Editora.Text);
         l.titulo = Titulo.Text;
+        l.valor = Convert.ToDecimal(Valor.Text);
 
         l.Save(this.isUpdate);
 

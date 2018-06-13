@@ -76,17 +76,17 @@
             <div class="right">
               <ul>
                 <li>
-                  <a href="/clientes/Editar">
+                  <a href="/clientes/Editar" title="Adicionar Cliente">
                     <i class="fas fa-user"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="/editoras/Editar">
+                  <a href="/editoras/Editar" title="Adicionar Editora">
                     <i class="fas fa-truck"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="/livros/Editar">
+                  <a href="/livros/Editar" title="Adicionar Livro">
                     <i class="fas fa-book"></i>
                   </a>
                 </li>        

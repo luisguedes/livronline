@@ -24,14 +24,14 @@ public partial class Editar : Page
             {
                 Id.Text = Request["id"];
                 Nome.Text = d.Rows[0].Field<String>(1);
-                Pais.Text = d.Rows[0].Field<String>(3);
-                Estado.Text = d.Rows[0].Field<String>(4);
-                Cidade.Text = d.Rows[0].Field<String>(5);
-                CEP.Text = d.Rows[0].Field<String>(6);
-                Logradouro.Text = d.Rows[0].Field<String>(7);
-                Bairro.Text = d.Rows[0].Field<String>(8);
-                Numero.Text = d.Rows[0].Field<int>(9).ToString();
-                Complemento.Text = d.Rows[0].Field<String>(10);
+                Pais.Text = d.Rows[0].Field<String>(2);
+                Estado.Text = d.Rows[0].Field<String>(3);
+                Cidade.Text = d.Rows[0].Field<String>(4);
+                CEP.Text = d.Rows[0].Field<String>(5);
+                Logradouro.Text = d.Rows[0].Field<String>(6);
+                Bairro.Text = d.Rows[0].Field<String>(7);
+                Numero.Text = d.Rows[0].Field<int>(8).ToString();
+                Complemento.Text = d.Rows[0].Field<String>(9);
             }
         }
     }

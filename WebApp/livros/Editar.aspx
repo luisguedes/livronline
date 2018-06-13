@@ -24,8 +24,14 @@
                     <label for="Qtd">Quantidade</label>
                 </div>
             </div>
+            <div class="col-md-2">
+                <div class="input">
+                    <asp:TextBox ID="Valor" runat="server" Placeholder=" " />
+                    <label for="Valor">Valor</label>
+                </div>
+            </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="input">
                     <asp:TextBox ID="Autor" runat="server" Placeholder=" " />
                     <label for="Autor">Autor</label>

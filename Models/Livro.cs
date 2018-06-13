@@ -14,6 +14,7 @@ namespace Models
         public Int64 qtde;
         public String titulo;
         public String autor;
+        public Decimal valor;
 
         public Livro() : base("LIVRO", "@isbn") { }
 
@@ -24,6 +25,7 @@ namespace Models
             cmd.Parameters.AddWithValue("@qtde", qtde);
             cmd.Parameters.AddWithValue("@titulo", titulo);
             cmd.Parameters.AddWithValue("@autor", autor);
+            cmd.Parameters.AddWithValue("@valor", valor);
 
             return cmd;
         }

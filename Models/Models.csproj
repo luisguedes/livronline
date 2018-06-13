@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Categoria.cs" />
     <Compile Include="Categorizador.cs" />
+    <Compile Include="Compra.cs" />
     <Compile Include="Livro.cs" />
     <Compile Include="SqlLayer.cs" />
     <Compile Include="Pessoa.cs" />
