@@ -28,25 +28,10 @@
     </div>
 
     <script>
-        document.querySelectorAll('.edit-button').forEach(function (el) {
-            el.onclick = function (e) {
-                e.preventDefault();
-                var url = el.dataset.href + el.parentElement.parentElement.querySelector('td').textContent;
-                window.location = url;
-            }
-        });
-
-        document.querySelectorAll('.delete-button').forEach(function (el) {
-            el.onclick = function (e) {
-                e.preventDefault();
-                var id = el.parentElement.parentElement.querySelector('td').textContent;
-                if (window.confirm("Deseja realmente deletar o usuario?")) {
-                    __doPostBack("<%= removeClientBtn.UniqueID %>", id);
-                }
-            }
-        });
-        
+        window.pageRemoveId = "<%= removeClientBtn.UniqueID %>";
+        window.pageQuestion = "esse usuario?"
     </script>
+    <script src="/Scripts/list.js"></script>
 </asp:Content>
 
 

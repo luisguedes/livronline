@@ -241,7 +241,7 @@ body {
 }
 
 .button.red {
-    background: #9e1b1b 
+    background: #9e1b1b
 }
 
 .action-button {
@@ -262,4 +262,64 @@ body {
 
 .action-button.edit-button {
     color: #44900b
+}
+
+.input.select input {
+    display: none;
+}
+
+.input.select .value-holder {
+    height: 24px;
+}
+
+.input.select ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    box-shadow: 0 3px 6px rgba(40, 52, 67, 0.2);
+    position: absolute;
+    background: #FFF;
+    border: 1px solid #41b3f9;
+    top: 23px;
+    display: none;
+}
+
+.input.select ul li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(47, 50, 62, 0.1)
+}
+
+.input.select.active ul {
+    display: block
+}
+
+.input.select:after {
+    content: " ";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    border-top: 5px solid #797979;
+}
+
+.input.select.active:after {
+    content: " ";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    border-bottom: 5px solid #41b3f9;
+    border-top: none;
+}
+
+.input.select .value-holder {
+    font-size: 12px;
 }

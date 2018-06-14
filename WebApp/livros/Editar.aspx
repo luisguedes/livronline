@@ -48,22 +48,25 @@
     </div>
     <div class="card">
         <h2>Categorias</h2>
-        <div display="none">
+        <div style="display:none">
             <asp:TextBox ID="CategoriasField" CssClass="CategoriasField" runat="server" Placeholder=" " />
         </div>
 
-        <div class="input">
-            <select id="Categorias">
+        <div class="input select" id="selectedCategory">
+            <input type="text" placeholder=" ">
+            <label for="x">Select</label>
+            <div class="value-holder"></div>
+            <ul>
                 <% foreach (String nome in todasCategorias) { %>
-                    <option value="<%= nome %>"><%= nome %></option>
+                    <li data-val="<%= nome %>"><%= nome %></option>
                 <% } %>
-            </select>
+            </ul>
         </div>
         <button type="button" id="adicionarCategoria" onclick="adicionarCategoria"> Adicionar </button>
 
         <ul id="listaDeCategoria">
             <% foreach (String nome in categoriasDoLivro) { %>
-               <li><%= nome %></li>
+                <li data-val="<%= nome %>"><%= nome %></option>
             <% } %>
         </ul>
     </div>
@@ -78,21 +81,23 @@
     <script>
         document.getElementById("adicionarCategoria").onclick = function () {
             var li = document.createElement("li");
-            var categorias = document.getElementById("Categorias");
             var lista = document.getElementById("listaDeCategoria");
-            var option = categorias.options[categorias.selectedIndex];
+            var categoriesHolderSelect = document.getElementById("selectedCategory")
+            var selectedCategory = categoriesHolderSelect.querySelector("input").value;
+            var categoriesInputList = categoriesHolderSelect.querySelector("ul");
             var input = document.querySelector(".CategoriasField");
 
-            li.textContent = option.value;
+            li.textContent = selectedCategory;
+            li.dataset.val = selectedCategory;
             li.onclick = function () {
                 lista.removeChild(li);
-                categorias.appendChild(option);
+                categorias.appendChild(li);
                 input.value = input.value.replace(option.value + ",", "");
             }
 
             lista.appendChild(li);
-            input.value = input.value + option.value + ",";
-            categorias.removeChild(option);
+            input.value = input.value + selectedCategory + ",";
+            categorias.removeChild(document.querySelector("li[data-val=" + selectedCategory + "]"));
         }
     </script>
 </asp:Content>
