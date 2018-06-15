@@ -1,4 +1,4 @@
-ï»¿<%@ Page Title="Editoras" EnableEventValidation="false" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Default" %>
+<%@ Page Title="Editoras" EnableEventValidation="false" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="card">
@@ -10,7 +10,7 @@
                 <asp:BoundField DataField="editoranome" HeaderText="Nome" />
                 <asp:BoundField DataField="cidade" HeaderText="Cidade" />
                 <asp:BoundField DataField="logradouro" HeaderText="Logradouro" />
-                <asp:TemplateField HeaderText="AÃ§Ãµes">
+                <asp:TemplateField HeaderText="Ações">
                     <ItemTemplate> 
                         <button data-href="/editoras/Editar?id=" class="action-button edit-button">
                             <i class="far fa-edit"></i>
@@ -34,4 +34,3 @@
     </script>
     <script src="/Scripts/list.js"></script>
 </asp:Content>
-

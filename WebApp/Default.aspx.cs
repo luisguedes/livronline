@@ -35,6 +35,7 @@ public partial class _Default : Page
             var map = new Dictionary<String, String>();
             map["id"] = r.Field<Int64>(1).ToString();
             map["text"] = r.Field<String>(3);
+            map["extra"] = r.Field<Decimal>(5).ToString();
             this.todosLivros.Add(map);
         }
     }

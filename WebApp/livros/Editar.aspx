@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Livro" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Editar.aspx.cs" Inherits="Editar" %>
+<%@ Page Title="Livro" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Editar.aspx.cs" Inherits="Editar" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="card">
@@ -13,7 +13,7 @@
             <div class="col-md-7">
                 <div class="input">
                     <asp:TextBox ID="Titulo" runat="server" Placeholder=" " />
-                    <label for="Titulo">Título</label>
+                    <label for="Titulo">T�tulo</label>
                 </div>
             </div>
         </div>
@@ -39,9 +39,15 @@
             </div>
 
             <div class="col-md-4">
-                <div class="input">
+                <div class="input select">
                     <asp:TextBox ID="Editora" runat="server" Placeholder=" " />
                     <label for="Editora">Editora</label>
+                    <div class="value-holder"></div>
+                    <ul>
+                        <% foreach (Dictionary<String, String> editora in editoras) { %>
+                            <li data-val="<%= editora["id"] %>"><%= editora["text"] %></option>
+                        <% } %>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -52,21 +58,28 @@
             <asp:TextBox ID="CategoriasField" CssClass="CategoriasField" runat="server" Placeholder=" " />
         </div>
 
-        <div class="input select" id="selectedCategory">
-            <input type="text" placeholder=" ">
-            <label for="x">Select</label>
-            <div class="value-holder"></div>
-            <ul>
-                <% foreach (String nome in todasCategorias) { %>
-                    <li data-val="<%= nome %>"><%= nome %></option>
-                <% } %>
-            </ul>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="input select" id="selectedCategory">
+                    <input type="text" placeholder=" ">
+                    <label for="x">Select</label>
+                    <div class="value-holder"></div>
+                    <ul>
+                        <% foreach (String nome in todasCategorias) { %>
+                            <li data-val="<%= nome %>"><%= nome %></option>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button style="margin-top:15px" type="button" class="button" id="adicionarCategoria" onclick="adicionarCategoria"> Adicionar Categoria </button>
+            </div>
         </div>
-        <button type="button" id="adicionarCategoria" onclick="adicionarCategoria"> Adicionar </button>
+        
 
         <ul id="listaDeCategoria">
             <% foreach (String nome in categoriasDoLivro) { %>
-                <li data-val="<%= nome %>"><%= nome %></option>
+                <li class="disabled"><%= nome %></option>
             <% } %>
         </ul>
     </div>
@@ -83,7 +96,9 @@
             var li = document.createElement("li");
             var lista = document.getElementById("listaDeCategoria");
             var categoriesHolderSelect = document.getElementById("selectedCategory")
-            var selectedCategory = categoriesHolderSelect.querySelector("input").value;
+            var holder = categoriesHolderSelect.querySelector(".value-holder");
+            var selectedCategoryInput = categoriesHolderSelect.querySelector("input");
+            var selectedCategory = selectedCategoryInput.value;
             var categoriesInputList = categoriesHolderSelect.querySelector("ul");
             var input = document.querySelector(".CategoriasField");
 
@@ -91,13 +106,15 @@
             li.dataset.val = selectedCategory;
             li.onclick = function () {
                 lista.removeChild(li);
-                categorias.appendChild(li);
-                input.value = input.value.replace(option.value + ",", "");
+                categoriesInputList.appendChild(li);
+                input.value = input.value.replace(selectedCategory + ",", "");
             }
 
             lista.appendChild(li);
             input.value = input.value + selectedCategory + ",";
-            categorias.removeChild(document.querySelector("li[data-val=" + selectedCategory + "]"));
+            categoriesInputList.removeChild(document.querySelector("li[data-val=" + selectedCategory + "]"));
+            selectedCategoryInput.value = "";
+            holder.textContent = "";
         }
     </script>
 </asp:Content>

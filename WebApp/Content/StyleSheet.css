@@ -17,9 +17,21 @@ body {
     box-shadow: 4px 0 8px rgba(47, 50, 62, 0.1)
 }
 
+.sidebar header {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(47, 50, 62, 0.1);
+}
+
+.sidebar header img {
+    width: 70%;
+    display: block;
+    margin: 0px auto;
+}
+
 .sidebar > ul {
     padding: 0px;
     list-style: none;
+    z-index: 4;
 }
 
 .sidebar > ul > li > a {
@@ -90,9 +102,9 @@ body {
     font-weight: 500;
 }
 
-.content > section > .card .custom-table > thead th {
-    padding: 20px 0;
-}
+    .content > section > .card .custom-table > thead th {
+        padding: 20px 0;
+    }
 
 .content > section > .card .custom-table tr {
     border: white;
@@ -122,7 +134,7 @@ body {
 
 .content header .right {
     float: right;
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 .content header .right ul {
@@ -191,7 +203,7 @@ body {
     transition: 0.3s;
 }
 
-.input input {
+.input input, .input.select .value-holder {
     padding: 5px 2px;
     border: none;
     border-bottom: 1px solid #797979;
@@ -207,7 +219,7 @@ body {
     transition: 0.3s;
 }
 
-.input input:focus + label, .input input:not(:placeholder-shown) + label {
+.input input:focus + label, .input input:not(:placeholder-shown) + label, .input.select.active label {
     font-size: 12px;
     top: -12px;
     color: #41b3f9;
@@ -240,9 +252,9 @@ body {
     color: #fff;
 }
 
-.button.red {
-    background: #9e1b1b
-}
+    .button.red {
+        background: #9e1b1b
+    }
 
 .action-button {
     border: 0;
@@ -264,6 +276,10 @@ body {
     color: #44900b
 }
 
+.input.select {
+    cursor: pointer;
+}
+
 .input.select input {
     display: none;
 }
@@ -280,7 +296,7 @@ body {
     position: absolute;
     background: #FFF;
     border: 1px solid #41b3f9;
-    top: 23px;
+    top: 30px;
     display: none;
 }
 
@@ -296,30 +312,39 @@ body {
 .input.select:after {
     content: " ";
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     right: 10px;
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-
     border-top: 5px solid #797979;
 }
 
 .input.select.active:after {
-    content: " ";
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-
     border-bottom: 5px solid #41b3f9;
     border-top: none;
 }
 
 .input.select .value-holder {
-    font-size: 12px;
+    font-size: 13px;
+    height: 31px;
+    padding: 6px 0px;
+}
+
+#listaDeCategoria {
+    padding: 0px;
+    list-style: none;
+}
+
+#listaDeCategoria li {
+    padding: 5px 10px;
+    background:#edf1f5;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+#listaDeCategoria li.disabled {
+    opacity: 0.6;
+    cursor: no-drop;
 }

@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 </head>
 <body>
-    <script src="/Scripts/custom.js"></script>
+    <script src="/scripts/custom.js"></script>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -42,7 +42,7 @@
         </asp:ScriptManager>
         <aside class="sidebar">
           <header>
-            <img src="/Content/livronline.png" />
+            <img src="../Content/livronline.png" />
           </header>
           <ul>
             <li class="<% if (Page.Title == "Vendas") { %> active <%} %>">

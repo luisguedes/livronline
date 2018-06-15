@@ -12,15 +12,25 @@ public partial class Editar : Page
     protected bool isUpdate = false;
     protected List<String> todasCategorias = new List<String>();
     protected List<String> categoriasDoLivro = new List<String>();
-
+    protected List<Dictionary<String, String>> editoras = new List<Dictionary<String, String>>();
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         var id = Convert.ToInt64(Request["id"]);
         var dtCategorias = new Categoria().Find(0);
-
+        var dtEditoras = new Editora().Find(0);
+ 
         foreach (DataRow r in dtCategorias.Rows) {
             this.todasCategorias.Add(r.Field<String>(0));
-        } 
+        }
+
+        foreach (DataRow r in dtEditoras.Rows)
+        {
+            var map = new Dictionary<String, String>();
+            map["id"] = r.Field<Int64>(0).ToString();
+            map["text"] = r.Field<String>(1);
+            this.editoras.Add(map);
+        }
 
         if (id != 0)
         {
