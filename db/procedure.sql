@@ -24,6 +24,7 @@ BEGIN
 	if (@cnpj = 0) 
 		select e.cnpj, e.editoranome,e.cidade, e.logradouro
 		from editora e
+		order by e.editoranome
 	else
 		select *
 		from editora where cnpj = @cnpj
@@ -99,6 +100,7 @@ BEGIN
 		select e.editoranome as editora, l.isbn, l.qtde, l.titulo, l.autor, l.valor
 		from livro l
 		INNER JOIN editora e ON e.cnpj = l.editora_cnpj
+		order by l.autor
 	else
 		select * from livro where isbn = @isbn
 END
@@ -137,6 +139,9 @@ CREATE PROCEDURE PR_DELETAR_LIVRO
 	@isbn bigint
 AS 
 BEGIN
+	delete cliente_compra_livro
+	where livro_isbn = @isbn
+
 	delete categoria_livro
 	where livro_isbn = @isbn
 
@@ -178,6 +183,7 @@ BEGIN
 	if (@cpf_cnpj = 0) 
 		select cpf_cnpj, nome, email, pais, estado, cidade, cep, logradouro, bairro, numero, complemento, tipo
 		from cliente
+		order by nome
 	else
 		select cpf_cnpj, nome, email, pais, estado, cidade, cep, logradouro, bairro, numero, complemento, tipo
 		from cliente where cpf_cnpj = @cpf_cnpj
@@ -302,10 +308,12 @@ BEGIN
 		c.id as id,
 		l.titulo as titulo,
 		cl.nome as cliente,
-		l.valor as valor
+		l.valor as valor,
+		c.data as data
 	from Cliente_Compra_Livro c
 	inner join livro l ON l.isbn = c.livro_isbn
 	inner join cliente cl ON cl.cpf_cnpj = c.cliente_id
+	order by data
 END
 GO
 

@@ -12,7 +12,7 @@ window.onload = function () {
         el.onclick = function (e) {
             e.preventDefault();
             var id = el.parentElement.parentElement.querySelector('td').textContent;
-            if (window.confirm("Deseja realmente deletar " + window.pageQquestion)) {
+            if (window.confirm("Deseja realmente deletar " + window.pageQuestion)) {
                 __doPostBack(window.pageRemoveId, id);
             }
         }

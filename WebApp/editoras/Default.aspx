@@ -32,5 +32,5 @@
         window.pageRemoveId = "<%= removeEditoraBtn.UniqueID %>";
         window.pageQuestion = "essa editora?"
     </script>
-    <script src="/Scripts/list.js"></script>
+    <script src="/scripts/list.js"></script>
 </asp:Content>

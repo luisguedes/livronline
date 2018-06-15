@@ -30,9 +30,8 @@
     </div>
 
     <script>
-        console.log("esse livro?")
         window.pageRemoveId = "<%= removeLivroBtn.UniqueID %>";
         window.pageQuestion = "esse livro?"
     </script>
-    <script src="~/Scripts/list.js"></script>
+    <script src="/scripts/list.js"></script>
 </asp:Content>

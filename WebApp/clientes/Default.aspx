@@ -31,6 +31,6 @@
         window.pageRemoveId = "<%= removeClientBtn.UniqueID %>";
         window.pageQuestion = "esse usuario?"
     </script>
-    <script src="/Scripts/list.js"></script>
+    <script src="/scripts/list.js"></script>
 </asp:Content>
 
