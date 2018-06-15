@@ -10,9 +10,9 @@ namespace Models
 {
     public class SqlLayer
     {
-        private ConnectionSQLServer sql;
-        private String entityName;
-        private String entityKeyName;
+        protected ConnectionSQLServer sql;
+        protected String entityName;
+        protected String entityKeyName;
 
         public SqlLayer(String entityName, String entityKeyName)
         {

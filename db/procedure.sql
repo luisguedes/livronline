@@ -104,6 +104,15 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE PR_SELECT_LIVRO_EM_ESTOQUE
+AS 
+BEGIN
+	select isbn, titulo, valor
+	from livro
+	where qtde > 0
+END
+GO
+
 CREATE PROCEDURE PR_ATUALIZAR_LIVRO
 	@editora_cnpj bigint,
 	@isbn bigint,

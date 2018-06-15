@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,17 @@ namespace Models
             cmd.Parameters.AddWithValue("@valor", valor);
 
             return cmd;
+        }
+
+        public DataTable EmEstoque()
+        {
+
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PR_SELECT_" + this.entityName + "_EM_ESTOQUE";
+
+            return this.sql.ExecGet(cmd);
         }
     }
 }
