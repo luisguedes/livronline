@@ -17,7 +17,7 @@ public partial class _Default : Page
     {
 
         var dtClientes = new Cliente().Find(0);
-        var dtLivros = new Livro().Find(0);
+        var dtLivros = new Livro().EmEstoque();
 
         gridCompras.DataSource = new Compra().Find(0);
         gridCompras.DataBind();
@@ -33,9 +33,9 @@ public partial class _Default : Page
         foreach (DataRow r in dtLivros.Rows)
         {
             var map = new Dictionary<String, String>();
-            map["id"] = r.Field<Int64>(1).ToString();
-            map["text"] = r.Field<String>(3);
-            map["extra"] = r.Field<Decimal>(5).ToString();
+            map["id"] = r.Field<Int64>(0).ToString();
+            map["text"] = r.Field<String>(1);
+            map["extra"] = r.Field<Decimal>(2).ToString();
             this.todosLivros.Add(map);
         }
     }
@@ -69,5 +69,7 @@ public partial class _Default : Page
                 c.Save(false);
             }
         }
+
+        Response.Redirect("/");
     }
 }

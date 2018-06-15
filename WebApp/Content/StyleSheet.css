@@ -31,7 +31,6 @@ body {
 .sidebar > ul {
     padding: 0px;
     list-style: none;
-    z-index: 4;
 }
 
 .sidebar > ul > li > a {
@@ -298,6 +297,7 @@ body {
     border: 1px solid #41b3f9;
     top: 30px;
     display: none;
+    z-index: 4;
 }
 
 .input.select ul li {
